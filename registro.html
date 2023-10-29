@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro </title>
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Iconos Google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header> 
+        <!-- Header de navegación -->   
+        <nav class="navegacion">
+            <div class="logotipo">
+                <a href="index.html"><img class="logo" src="images/logoMiTienda.png" alt="logo-tienda"></a>
+            </div>
+            <ul class="contenedor-menu">
+                <li><a href="iniciarSesion.html" class="btn-purple">Inicio de sesión</a></li>
+            </ul>
+
+
+        </nav>
+    </header>
+         <!-- Sección del banner de búsqueda de cursos-->
+         <section class="banner-principal">
+            <div class="buscador">
+                <h2>Registro</h2>
+                <p>Regístrate para poder agregar productos nuevos</p>
+            </div>
+        </section>
+
+        <!--- Sección formulario de inicio de sesión -->
+        <section class="registro">
+            <div>
+                <form id="fomRegister" class="fomRegister" action="">
+                    <input type="text" placeholder="Usuario" name="inptUserRegister" id="inptUserRegister">
+                    <input type="password" name="pswdRegister" id="pswdRegister" placeholder="Password">
+                    <input type="submit" value="Registro">
+                </form>
+            </div>
+        </section>
+    <script src="scripts/registro.js"></script>
+</body>
+</html>

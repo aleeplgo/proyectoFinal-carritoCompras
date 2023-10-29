@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de compras</title>
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Iconos Google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header> 
+        <!-- Header de navegación -->   
+        <nav class="navegacion">
+            <div class="logotipo">
+                <a href="index.html"><img class="logo" src="images/logoMiTienda.png" alt="logo-tienda"></a>
+            </div>
+            <ul class="contenedor-menu">
+                <li><a href="iniciarSesion.html" class="btn-purple">Inicio de sesión</a></li>
+                <li><a href="registro.html"class="btn-purple">Registro</a></li>
+                <!--<li><a href="#">Contacto</a></li>-->
+                <div class="dropdown-cart" id="carrito">
+                    <span class="contador">10</span>
+                    <button class="dropbtn">
+                       <span class="material-symbols-outlined">shopping_cart</span>
+                    </button>
+
+                    <div class="dropdown-content">
+                       <table id="lista-carrito" class="lista-carrito">
+                            <thead>
+                                <tr>
+                                <th width="50">Imagen</th>
+                                <th width="400">Nombre</th>
+                                <th width="100">Precio</th>
+                                <th width="100">Cantidad</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <!-- en tbody se irán colocando los cursos dinámicamente-->
+                            <tbody></tbody> 
+                       </table>
+                       <a href="#" id="vaciarCarrito" class="btn-purple">Vaciar carrito</a>
+                    </div>
+                </div>
+
+
+            </ul>
+
+
+        </nav>
+    </header>
+        <!-- Sección del banner de búsqueda de cursos-->
+        <section class="banner-principal">
+            <div class="buscador">
+                <h2>Aprende algo nuevo</h2>
+                <p>Todos los cursos en $15 pesos</p>
+                <form id="formularioBuscador" class="formularioBuscador" action="">
+                    <input type="text" placeholder="¿Qué te gustaría aprender?">
+                    <input type="submit" value="Buscar">
+                </form>
+            </div>
+        </section>
+
+        <!-- Sección catálogo de productos-->
+        <section class="cursos">
+            <div class="titulos">
+                <h2 class="titulo-seccion">Cursos</h2>
+            </div>
+            <!-- Contenedor de los cursos-->
+            <div id="lista-cursos" class="contenedor">
+                <!-- Card del curso -->
+                <div class="column">
+                    <div class="card">
+                        <img class="img-curso" src="images/img-producto-01.jpg" alt="">
+                        <h2 class="titulo-curso">Diseño gráfico I</h2>
+                        <p class="profesor-curso">Gauss Lugo</p>
+                        <p class="reseñas">
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                        </p>
+                        <div class="precio">
+                            <p class="precio-anterior">$300 </p>
+                            <p class="precio-actual">$15</p>
+                        </div>
+                        <button class="agregar-carrito btn-purple" data-id="1">Agregar al carrito</button>
+                    </div>
+                </div>
+                 <!-- Card del curso -->
+                 <div class="column">
+                    <div class="card">
+                        <img class="img-curso" src="images/img-producto-01.jpg" alt="">
+                        <h2 class="titulo-curso">Diseño gráfico II</h2>
+                        <p class="profesor-curso">Gauss Lugo</p>
+                        <p class="reseñas">
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                        </p>
+                        <div class="precio">
+                            <p class="precio-anterior">$300 </p>
+                            <p class="precio-actual">$15</p>
+                        </div>
+                        <button class="agregar-carrito btn-purple" data-id="2">Agregar al carrito</button>
+                    </div>
+                </div>
+
+                 <!-- Card del curso -->
+                 <div class="column">
+                    <div class="card">
+                        <img class="img-curso" src="images/img-producto-01.jpg" alt="">
+                        <h2 class="titulo-curso">Adobe Illustrator I</h2>
+                        <p class="profesor-curso">Arnold Lugo</p>
+                        <p class="reseñas">
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                        </p>
+                        <div class="precio">
+                            <p class="precio-anterior">$300 </p>
+                            <p class="precio-actual">$15</p>
+                        </div>
+                        <button class="agregar-carrito btn-purple" data-id="3">Agregar al carrito</button>
+                    </div>
+                </div>
+
+                   <!-- Card del curso -->
+                   <div class="column">
+                    <div class="card">
+                        <img class="img-curso" src="images/img-producto-01.jpg" alt="">
+                        <h2 class="titulo-curso">Adobe Illustrator II</h2>
+                        <p class="profesor-curso">Arnold Lugo</p>
+                        <p class="reseñas">
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                        </p>
+                        <div class="precio">
+                            <p class="precio-anterior">$300 </p>
+                            <p class="precio-actual">$15</p>
+                        </div>
+                        <button class="agregar-carrito btn-purple" data-id="4">Agregar al carrito</button>
+                    </div>
+                </div>
+
+
+                   <!-- Card del curso -->
+                   <div class="column">
+                    <div class="card">
+                        <img class="img-curso" src="images/img-producto-01.jpg" alt="">
+                        <h2 class="titulo-curso">Diseño web I</h2>
+                        <p class="profesor-curso">Ale Lugo</p>
+                        <p class="reseñas">
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                        </p>
+                        <div class="precio">
+                            <p class="precio-anterior">$300 </p>
+                            <p class="precio-actual">$15</p>
+                        </div>
+                        <button class="agregar-carrito btn-purple" data-id="5">Agregar al carrito</button>
+                    </div>
+                </div>
+
+
+                  <!-- Card del curso -->
+                  <div class="column">
+                    <div class="card">
+                        <img class="img-curso" src="images/img-producto-01.jpg" alt="">
+                        <h2 class="titulo-curso">Diseño web II</h2>
+                        <p class="profesor-curso">Ale Lugo</p>
+                        <p class="reseñas">
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                            <a href="#" class="star"><span class="material-symbols-outlined">star</span></a>
+                        </p>
+                        <div class="precio">
+                            <p class="precio-anterior">$300 </p>
+                            <p class="precio-actual">$15</p>
+                        </div>
+                        <button class="agregar-carrito btn-purple" data-id="6">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+            <p class="texto-footer">© 2023 M4 Estudio®</p>
+        </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
