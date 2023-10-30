@@ -4,6 +4,7 @@ const fomRegister = document.querySelector("#fomRegister");
 const inptEmailRegister = document.querySelector("#inptEmailRegister");
 const pswdRegister = document.querySelector("#pswdRegister");
 const alerta = document.querySelector(".alerta");
+const datos = document.querySelector(".datos"); 
 
 //Almacenar cada usuario en una lista
 let listaUsuarios = []; 
@@ -53,6 +54,15 @@ function crearUsuario(e){
             alerta.textContent = "Gracias te has registrado correctamente";
             alerta.style.color = "#15bd3f";
             alerta.style.border = "3px solid #15bd3f";
+            datos.textContent = `
+            Email: ${emailValueForm}. 
+
+            Password: ${passwordValueForm}. 
+
+            No olvides guardarlos en un lugar seguro.`;
+
+            datos.style.color = "#262026";
+            datos.style.border = "3px solid #262026";
 
             // Limpiar los datos del formulario
             inptEmailRegister.value = '';
@@ -62,7 +72,13 @@ function crearUsuario(e){
             setTimeout(function () {
                 alerta.style.display = 'none';
             }, 3000);
-                }
+
+            // Configurar un temporizador para ocultar los datos después de 5 segundos
+            setTimeout(function () {
+                datos.style.display = 'none';
+            }, 6000);
+            
+        }
        
     }
 }
@@ -74,3 +90,4 @@ function crearUsuario(e){
 //localStorage.removeItem("usuario");
 //localStorage.removeItem("password");
 //localStorage.clear(); //Todo lo elimina
+//admin@mitienda.com editor@mitienda.com
