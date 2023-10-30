@@ -193,7 +193,7 @@
 
     .banner-principal .buscador {
      width: 100%;
-      max-width: 600px;
+     max-width: 600px;
      padding-bottom: 30px; 
     }
 
@@ -218,6 +218,10 @@
     }
 
     .registro input{
+      width: 100%;
+    }
+
+    .agregarProductos input {
       width: 100%;
     }
 
@@ -324,7 +328,7 @@
     }
 
     /*SECCIÓN INICIAR SESIÓN y REGISTRO*/
-    .inicioSesion, .registro{
+    .inicioSesion, .registro, .agregarProductos{
       display: flex;
       justify-content: center;
     }
