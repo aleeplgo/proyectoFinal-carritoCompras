@@ -58,10 +58,10 @@ function crearUsuario(e){
             pswdRegister.value = '';
 
             // Configurar un temporizador para ocultar la alerta después de 3 segundos
-            alertTimeout = setTimeout(function () {
-            alerta.style.display = 'none';
+            setTimeout(function () {
+                alerta.style.display = 'none';
             }, 3000);
-        }
+                }
        
     }
 }
