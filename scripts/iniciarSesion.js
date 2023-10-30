@@ -1,19 +1,48 @@
-/* Enlazamos las variables*/
+//Formulario de Inicio de sesión
 const fomLogin = document.querySelector("#fomLogin"); 
 const inptEmailLogin = document.querySelector("#inptEmailLogin"); 
 const pswdLogin = document.querySelector("#pswdLogin");
+const alerta = document.querySelector(".alerta"); 
 
-//Events Listener
+//Events Listeners
+
 //Mandar a llamar las funciones
 eventListeners(); 
 
 function eventListeners(){
-    fomLogin.addEventListener("submit",IniciarSesion);
+    fomLogin.addEventListener("submit",verificarCredenciales);
 }
 
 
 //Funciones 
-function IniciarSesion(e){
+function verificarCredenciales(e){
     e.preventDefault(); 
-    console.log("Hola");
+
+    //Traemos los valores de cadad input
+    const email = inptEmailLogin.value.trim(); 
+    const pswd = pswdLogin.value.trim(); 
+
+    //Validamos que el usuario y contraseña sea el mismo que está guardado en el localStorage
+    //console.log(localStorage.getItem(email));
+    const verificarPswd = localStorage.getItem(email);
+
+    if (verificarPswd === pswd) {
+        // Las credenciales son correctas
+        alerta.textContent = "Gracias has iniciado sesión correctamente";
+        alerta.style.color = "#15bd3f";
+        alerta.style.border = "3px solid #15bd3f";
+        redireccionar(); 
+        return true;
+    } else {
+        // Las credenciales son incorrectas
+        alerta.textContent = "Este correo electrónico no está registrado";
+        alerta.style.color = "red";
+        alerta.style.border = "3px solid red";
+        return false;
+    }
+}
+
+
+function redireccionar(){
+    window.location.href = "agregarProductos.html";
 }

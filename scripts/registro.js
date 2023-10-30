@@ -1,8 +1,9 @@
 /* Enlazamos las variables*/
+//Formulario de Registro 
 const fomRegister = document.querySelector("#fomRegister"); 
 const inptEmailRegister = document.querySelector("#inptEmailRegister");
 const pswdRegister = document.querySelector("#pswdRegister");
-const alerta = document.querySelector(".alerta"); 
+const alerta = document.querySelector(".alerta");
 
 //Almacenar cada usuario en una lista
 let listaUsuarios = []; 
