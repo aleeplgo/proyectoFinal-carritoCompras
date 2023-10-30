@@ -35,7 +35,7 @@ function verificarCredenciales(e){
         return true;
     } else {
         // Las credenciales son incorrectas
-        alerta.textContent = "Este correo electrónico no está registrado";
+        alerta.textContent = "Las credenciales son incorrectas";
         alerta.style.color = "red";
         alerta.style.border = "3px solid red";
         return false;
