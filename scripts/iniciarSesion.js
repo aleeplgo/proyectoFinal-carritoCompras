@@ -44,5 +44,6 @@ function verificarCredenciales(e){
 
 
 function redireccionar(){
+    localStorage.setItem('usuarioAutenticado', 'true');
     window.location.href = "agregarProductos.html";
 }
