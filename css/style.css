@@ -16,6 +16,14 @@
     box-sizing: border-box;
   } 
 
+  .active{
+    display:block; 
+  }
+
+  .inactive {
+    display:none; 
+  }
+
   .navegacion {
     display: flex;
     justify-content: space-between;
@@ -79,7 +87,6 @@
     text-align: center;
     padding: 5px 5px; /* Relleno del boton */
     z-index: 999999 !important;
-
   }
 
   .dropdown-cart {
