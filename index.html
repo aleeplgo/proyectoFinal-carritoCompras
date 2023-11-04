@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+    <!-- CDN SWEET ALERT-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <header> 
@@ -60,8 +62,8 @@
                 <h2>Aprende algo nuevo</h2>
                 <p>Todos los cursos en $15 pesos</p>
                 <form id="formularioBuscador" class="formularioBuscador" action="">
-                    <input type="text" placeholder="¿Qué te gustaría aprender?">
-                    <input type="submit" value="Buscar">
+                    <input id="inptSearch" type="text" placeholder="¿Qué te gustaría aprender?">
+                    <input id="btnSearch" type="submit" value="Buscar">
                 </form>
             </div>
         </section>
@@ -196,5 +198,6 @@
         </footer>
 
     <script src="scripts/main.js"></script>
+    <script src="scripts/buscarProdcto.js"></script>
 </body>
 </html>
