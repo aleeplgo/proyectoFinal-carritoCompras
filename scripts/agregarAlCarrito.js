@@ -76,6 +76,9 @@ function resetearCarrito(e){
     e.preventDefault(); 
     numeritoContador.textContent=0; 
     limpiarHTMLDropdown(); 
+
+    //Vaciar el arreglo de Artículos Carrito
+    articulosCarrito = [];
     return; 
 }
 
@@ -128,5 +131,12 @@ function dropdownCarritoHTML(){
 
 //ELimina los cursos del Dropdown Carrito
 function limpiarHTMLDropdown(){
-    tbodyProductosCarrito.innerHTML = ""; 
+    //Forma lenta
+    //tbodyProductosCarrito.innerHTML = ""; 
+
+    //Mejor borrar con while
+    while(tbodyProductosCarrito.firstChild){
+        tbodyProductosCarrito.removeChild(tbodyProductosCarrito.firstChild);
+    }
 }
+
