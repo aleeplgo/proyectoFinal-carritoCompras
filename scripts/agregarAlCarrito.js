@@ -75,7 +75,7 @@ function sumarContador() {
 function resetearCarrito(e){
     e.preventDefault(); 
     numeritoContador.textContent=0; 
-    tbodyProductosCarrito.innerHTML = ""; 
+    limpiarHTMLDropdown(); 
     return; 
 }
 
