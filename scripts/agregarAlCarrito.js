@@ -74,8 +74,9 @@ function sumarContador() {
 
 function resetearCarrito(e){
     e.preventDefault(); 
-    let borrar = numeritoContador.textContent=0; 
-    return borrar; 
+    numeritoContador.textContent=0; 
+    tbodyProductosCarrito.innerHTML = ""; 
+    return; 
 }
 
 
