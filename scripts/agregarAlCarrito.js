@@ -106,26 +106,41 @@ function leerDatosCardCurso(curso){
 
 
 //Muestra el carrito de compras 
-function dropdownCarritoHTML(){
-
-
+function dropdownCarritoHTML() {
     //Limpiar el tbody
-    limpiarHTMLDropdown(); 
+    limpiarHTMLDropdown();
 
-    //Recorre el carrito y genera el html 
-    articulosCarrito.forEach(function(curso){
+    // Crear un objeto para rastrear los productos acumulados
+    const productosAcumulados = {};
+
+    // Recorre el carrito y acumula los productos
+    articulosCarrito.forEach(function (curso) {
+        // Si el producto ya está en productosAcumulados, acumula la cantidad y el precio
+        if (productosAcumulados[curso.id]) {
+            productosAcumulados[curso.id].cantidad += curso.cantidad;
+            productosAcumulados[curso.id].precioTotal += curso.precioActual * curso.cantidad;
+        } else {
+            // Si el producto no está en productosAcumulados, agrega el producto
+            productosAcumulados[curso.id] = {
+                ...curso,
+                precioTotal: curso.precioActual * curso.cantidad
+            };
+        }
+    });
+
+    // Genera el HTML con los productos acumulados
+    Object.values(productosAcumulados).forEach(function (producto) {
         const row = document.createElement("tr");
-
         row.innerHTML = `
-        <td>${curso.titulo}</td>
-        <td>${curso.precioActual}</td>
-        <td>${curso.cantidad}</td>  
-        `; 
-
-        //Agrega el html en el tbody 
+            <td>${producto.titulo}</td>
+            <td>$${producto.precioTotal}</td>
+            <td>${producto.cantidad}</td>  
+        `;
+        // Agrega el html en el tbody
         tbodyProductosCarrito.appendChild(row);
     });
 }
+
 
 
 
