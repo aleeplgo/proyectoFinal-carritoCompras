@@ -19,15 +19,15 @@ function agregarAlCarrito(e){
     if(btnAgregarCarrito){
         Toastify({
             text: "Producto Agregado",
-            duration: 30000000,
+            duration: 3000,
             destination: "carrito.html",
             newWindow: true,
             close: true,
-            gravity: "top", // `top` or `bottom`
+           // gravity: "top", // `top` or `bottom`
             position: "right", // `left`, `center` or `right`
             stopOnFocus: true, // Prevents dismissing of toast on hover
             style: {
-              background: "var(--purple)",
+              background: "var(--green)",
               color: "var(--white)"
             },
             onClick: function(){} // Callback after click
