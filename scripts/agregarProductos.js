@@ -4,7 +4,8 @@ const textoBanner = document.querySelector(".textoBanner");
 const formAgregarProductos = document.querySelector("#formAgregarProductos"); 
 const nombreCurso = document.querySelector("#nombreCurso"); 
 const instructorCurso = document.querySelector("#instructorCurso");
-const precioCurso = document.querySelector("#precioCurso");
+const precioAnteriorCurso = document.querySelector("#precioAnteriorCurso");
+const precioActualCurso = document.querySelector("#precioActualCurso");
 const imagenCurso = document.querySelector("#imagenCurso");
 const btnCerrarSesion = document.querySelector("#btnCerrarSesion"); 
 
