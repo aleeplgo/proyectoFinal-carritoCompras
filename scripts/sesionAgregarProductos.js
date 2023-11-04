@@ -1,12 +1,6 @@
 //Formulario de Agregar Productos
 const seccionAgregarProductos = document.querySelector("body"); 
 const textoBanner = document.querySelector(".textoBanner"); 
-const formAgregarProductos = document.querySelector("#formAgregarProductos"); 
-const nombreCurso = document.querySelector("#nombreCurso"); 
-const instructorCurso = document.querySelector("#instructorCurso");
-const precioAnteriorCurso = document.querySelector("#precioAnteriorCurso");
-const precioActualCurso = document.querySelector("#precioActualCurso");
-const imagenCurso = document.querySelector("#imagenCurso");
 const btnCerrarSesion = document.querySelector("#btnCerrarSesion"); 
 
 //Si no estás loggeado la página redire a Iniciar sesión
@@ -24,18 +18,11 @@ if (localStorage.getItem('usuarioAutenticado') !== 'true') {
 eventListeners(); 
 
 function eventListeners(){
-    formAgregarProductos.addEventListener("submit",agregarProductosATienda);
     btnCerrarSesion.addEventListener("click", LogOut); 
 }
 
 
 //Funciones 
-
-function agregarProductosATienda(e){
-    e.preventDefault(); 
-    console.log("Agregando Productos...");
-
-}
 
 
 function LogOut(){
