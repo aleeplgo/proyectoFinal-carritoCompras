@@ -2,10 +2,10 @@
 const btnAgregarCarrito = document.querySelectorAll(".agregar-carrito"); 
 const numeritoContador = document.querySelector(".contador"); 
 const btnVaciarCarrito = document.querySelector("#vaciarCarrito"); 
-const cardProduct = document.querySelector(".card"); 
+//Arreglo vacío del carrito
+let articulosCarrito = [];
 const listaCarrito = document.querySelector("#lista-carrito");
-console.log(cardProduct);
-console.log(listaCarrito);
+const tbodyProductosCarrito = document.querySelector(".tbodyProductosCarrito"); 
 
 eventsToCart(); 
 
@@ -25,8 +25,16 @@ function eventsToCart(){
 
 function agregarAlCarrito(e){
     e.preventDefault(); 
+        //console.log("1 ", e.target.parentElement);//Aquí me muestra la card
+        //console.log("2 ", e.target.parentElement.parentElement); //Aquí me muestra la columna
 
-    if(btnAgregarCarrito){
+
+        if(btnAgregarCarrito){
+
+        //Guardamos en una variable el curso que está seleccionando
+        const cursoSeleccionado = e.target.parentElement;
+        //console.log(cursoSeleccionado);
+        leerDatosCardCurso(cursoSeleccionado);
 
         //Librería de notificaciones 
         Toastify({
@@ -51,6 +59,7 @@ function agregarAlCarrito(e){
             let contador = sumarContador();
             numeritoContador.textContent = contador;
 
+
     } 
     
 }
@@ -67,4 +76,56 @@ function resetearCarrito(e){
     e.preventDefault(); 
     let borrar = numeritoContador.textContent=0; 
     return borrar; 
+}
+
+
+//Lee el contenido de la card del curso
+function leerDatosCardCurso(curso){
+    //Crear un objeto con el contenido del curso actual 
+    const infoCurso = {
+        id: curso.querySelector(".agregar-carrito").getAttribute("data-id"),
+        imagen: curso.querySelector("img").src, //Extraemos el atributo src de la imagen 
+        titulo: curso.querySelector(".titulo-curso").textContent, 
+        profesor: curso.querySelector(".profesor-curso").textContent,
+        precioAnterior: curso.querySelector(".precio-anterior").textContent,
+        precioActual: curso.querySelector(".precio-actual").textContent,
+        cantidad: 1
+    }
+
+    //Agrega elementos al arreglo de carrito con el spread operator
+    articulosCarrito = [...articulosCarrito, infoCurso]; 
+
+    //Mandar a llamar la función de mostrar en el carrito
+    dropdownCarritoHTML();
+
+}
+
+
+//Muestra el carrito de compras 
+function dropdownCarritoHTML(){
+
+
+    //Limpiar el tbody
+    limpiarHTMLDropdown(); 
+
+    //Recorre el carrito y genera el html 
+    articulosCarrito.forEach(function(curso){
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+        <td>${curso.titulo}</td>
+        <td>${curso.precioActual}</td>
+        <td>${curso.cantidad}</td>  
+        `; 
+
+        //Agrega el html en el tbody 
+        tbodyProductosCarrito.appendChild(row);
+    });
+}
+
+
+
+//ELimina los cursos del Dropdown Carrito
+function limpiarHTMLDropdown(){
+    tbodyProductosCarrito.innerHTML = ""; 
 }
