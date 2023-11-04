@@ -156,6 +156,14 @@
     height: 25px;
   }
 
+  tbody {
+    text-align: center;
+  }
+
+  tbody tr {
+    text-align: center;
+  }
+
 
   .dropdown-content table thead th {
     padding: 5px;

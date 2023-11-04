@@ -133,8 +133,9 @@ function dropdownCarritoHTML() {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${producto.titulo}</td>
-            <td>$${producto.precioTotal}</td>
             <td>${producto.cantidad}</td>  
+            <td>$${producto.precioTotal}</td>
+
         `;
         // Agrega el html en el tbody
         tbodyProductosCarrito.appendChild(row);
