@@ -1,7 +1,12 @@
 /*VARIABLES*/
 const btnAgregarCarrito = document.querySelectorAll(".agregar-carrito"); 
 const numeritoContador = document.querySelector(".contador"); 
-console.log(numeritoContador);
+const btnVaciarCarrito = document.querySelector("#vaciarCarrito"); 
+const cardProduct = document.querySelector(".card"); 
+const listaCarrito = document.querySelector("#lista-carrito");
+console.log(cardProduct);
+console.log(listaCarrito);
+
 eventsToCart(); 
 
 /*EVENTOS*/
@@ -12,6 +17,9 @@ function eventsToCart(){
     for(const btn of btnAgregarCarrito){
         btn.addEventListener("click", agregarAlCarrito); 
     }
+
+    //Evento click para ejecutar la función de vaciar el carrito 
+    btnVaciarCarrito.addEventListener("click",resetearCarrito); 
 }
 
 
@@ -27,7 +35,7 @@ function agregarAlCarrito(e){
             //destination: "carrito.html",
             newWindow: true,
             close: true,
-           // gravity: "top", // `top` or `bottom`
+            gravity: "bottom", // `top` or `bottom`
             position: "right", // `left`, `center` or `right`
             stopOnFocus: true, // Prevents dismissing of toast on hover
             style: {
@@ -45,11 +53,18 @@ function agregarAlCarrito(e){
 
     } 
     
-    console.log("Producto agregado al carrito");
 }
 
 function sumarContador() {
     let suma = Number(numeritoContador.textContent) || 0; // Obtén el valor actual del contador y conviértelo a un número
+    //console.log(suma);
     suma += 1;
     return suma;
+}
+
+
+function resetearCarrito(e){
+    e.preventDefault(); 
+    let borrar = numeritoContador.textContent=0; 
+    return borrar; 
 }
