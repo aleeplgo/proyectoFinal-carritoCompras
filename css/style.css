@@ -5,6 +5,7 @@
     --purple: #6c0ac7; 
     --red: #ff2600;
     --purpleDark: #5b1b96; 
+    --greenDark: #038450; 
     --black: #000; 
     --gray: #c4c7d5;
   }
@@ -364,6 +365,27 @@
 
     .btn-purple:hover {
       background-color: var(--purpleDark);
+      color: var(--white);
+    }
+
+    .btn-green {
+      width: 100%;
+      height: 35px;
+      padding: 10px;
+      margin: 0px;
+      margin-top: 10px;
+      padding: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+      background-color: var(--green);
+      color: var(--white);
+      border: none; 
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-green:hover {
+      background-color: var(--greenDark);
       color: var(--white);
     }
 

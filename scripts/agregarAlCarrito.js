@@ -8,6 +8,8 @@ let articulosCarrito = [];
 const listaCarrito = document.querySelector("#lista-carrito");
 const tbodyProductosCarrito = document.querySelector(".tbodyProductosCarrito"); 
 const borrarCursoCarrito = document.querySelector(".borrar-curso");
+const pagarAhora = document.querySelector("#pagarAhora"); 
+
 
 eventsToCart(); 
 
@@ -36,6 +38,9 @@ function eventsToCart(){
 
     //Eliminar curso del carrito 
     carrito.addEventListener("click", eliminarCursoCarrito); 
+
+    //Botón pagar ahora
+    pagarAhora.addEventListener("click", pagarProductos); 
 }
 
 /*
@@ -227,3 +232,38 @@ function eliminarCursoCarrito(e){
        dropdownCarritoHTML(); 
     } 
 }
+
+
+/*
+********************************
+********************************
+********************************
+PAGAR PRODUCTOS
+********************************
+********************************
+********************************
+*/
+
+//Pagar productos
+function pagarProductos(e){
+    e.preventDefault(); 
+    if(articulosCarrito.length > 0){
+        const cursos = articulosCarrito[0]; 
+        const tituloCurso = cursos.titulo; 
+        const precioCurso = cursos.precioActual; 
+        Swal.fire({
+            title: `${tituloCurso}`,
+            text: `¡Tu pago de $${precioCurso} ha sido procesado!`,
+            icon: 'success',
+          });  
+    } else {
+        Swal.fire({
+            title: `No pudimos procesar tu pago`,
+            text: `¡Ooops, selecciona al menos un curso!`,
+            icon: 'error',
+          });  
+    }
+
+   
+}
+

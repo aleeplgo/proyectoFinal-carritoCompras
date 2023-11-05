@@ -26,7 +26,7 @@ function buscarProducto(e){
             text: 'Recuerda que no puedes dejar campos vacíos para poder implementar la búsqueda',
             footer: '<a href="">¿Por qué tengo este problema?</a>'
         })
-}
+    }
 }
 
 
