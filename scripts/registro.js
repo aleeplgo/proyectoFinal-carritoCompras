@@ -43,24 +43,36 @@ function crearUsuario(e){
     } else {
         //Validar que no sean los mismos usuarios y correo electrónico
         if (localStorage.getItem(emailValueForm) !== null) {
-            alerta.textContent = "Este correo electrónico ya está registrado";
+            /* alerta.textContent = "Este correo electrónico ya está registrado";
             alerta.style.color = "red";
-            alerta.style.border = "3px solid red";
+            alerta.style.border = "3px solid red"; */
+            Swal.fire({
+                title: `¡No hemos podido registrarte`,
+                text: `Verifica los datos ingresados`,
+                icon: 'error',
+            });
 
         } else {
             //Almacenar cada usuario en una lista con el spreed operator
             listaUsuarios = [...listaUsuarios, user];         
             localStorage.setItem(user.email,user.password);
-            alerta.textContent = "Gracias te has registrado correctamente";
+            /* alerta.textContent = "Gracias te has registrado correctamente";
             alerta.style.color = "#15bd3f";
-            alerta.style.border = "3px solid #15bd3f";
-            datos.textContent = `
+            alerta.style.border = "3px solid #15bd3f"; */
+            
+            Swal.fire({
+                title: `¡Te has registrado correctamente. Email: ${emailValueForm}. Password: ${passwordValueForm}.`,
+                text: `Guarda tus datos en un lugar seguro.`,
+                icon: 'success',
+            });
+            
+           /*  datos.textContent = `
             Email: ${emailValueForm}. 
 
             Password: ${passwordValueForm}. 
 
             No olvides guardarlos en un lugar seguro.`;
-
+            */
             datos.style.color = "#262026";
             datos.style.border = "3px solid #262026";
 
