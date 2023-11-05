@@ -1,4 +1,5 @@
 /*VARIABLES*/
+const carrito = document.querySelector("#carrito"); 
 const btnAgregarCarrito = document.querySelectorAll(".agregar-carrito"); 
 const numeritoContador = document.querySelector(".contador"); 
 const btnVaciarCarrito = document.querySelector("#vaciarCarrito"); 
@@ -6,8 +7,20 @@ const btnVaciarCarrito = document.querySelector("#vaciarCarrito");
 let articulosCarrito = [];
 const listaCarrito = document.querySelector("#lista-carrito");
 const tbodyProductosCarrito = document.querySelector(".tbodyProductosCarrito"); 
+const borrarCursoCarrito = document.querySelector(".borrar-curso");
 
 eventsToCart(); 
+
+/*
+********************************
+********************************
+********************************
+EVENTOS
+********************************
+********************************
+********************************
+*/
+
 
 /*EVENTOS*/
 function eventsToCart(){
@@ -20,7 +33,20 @@ function eventsToCart(){
 
     //Evento click para ejecutar la función de vaciar el carrito 
     btnVaciarCarrito.addEventListener("click",resetearCarrito); 
+
+    //Eliminar curso del carrito 
+    carrito.addEventListener("click", eliminarCursoCarrito); 
 }
+
+/*
+********************************
+********************************
+********************************
+FUNCTION AGREGAR AL CARRITO EN BASE AL EVENTO DEL BOTÓN
+********************************
+********************************
+********************************
+*/
 
 
 function agregarAlCarrito(e){
@@ -71,16 +97,15 @@ function sumarContador() {
     return suma;
 }
 
-
-function resetearCarrito(e){
-    e.preventDefault(); 
-    numeritoContador.textContent=0; 
-    limpiarHTMLDropdown(); 
-
-    //Vaciar el arreglo de Artículos Carrito
-    articulosCarrito = [];
-    return; 
-}
+/*
+********************************
+********************************
+********************************
+LEE EL CONTENIDO DE LA CARD DEL CURSO
+********************************
+********************************
+********************************
+*/
 
 
 //Lee el contenido de la card del curso
@@ -103,6 +128,16 @@ function leerDatosCardCurso(curso){
     dropdownCarritoHTML();
 
 }
+
+/*
+********************************
+********************************
+********************************
+MUESTRA EL CARRITO DE COMPRAS
+********************************
+********************************
+********************************
+*/
 
 
 //Muestra el carrito de compras 
@@ -135,13 +170,33 @@ function dropdownCarritoHTML() {
             <td>${producto.titulo}</td>
             <td>${producto.cantidad}</td>  
             <td>$${producto.precioTotal}</td>
-
+            <td><a href="#" class="borrar-curso" data-id="${producto.id}"> X </a></td>
         `;
+
         // Agrega el html en el tbody
         tbodyProductosCarrito.appendChild(row);
     });
 }
 
+/*
+********************************
+********************************
+********************************
+ELIMINAR PRODUCTOS DEL CARRITO
+********************************
+********************************
+********************************
+*/
+
+function resetearCarrito(e){
+    e.preventDefault(); 
+    numeritoContador.textContent=0; 
+    limpiarHTMLDropdown(); 
+
+    //Vaciar el arreglo de Artículos Carrito
+    articulosCarrito = [];
+    return; 
+}
 
 
 
@@ -156,3 +211,19 @@ function limpiarHTMLDropdown(){
     }
 }
 
+
+//Eliminar curso del dropdown carrito 
+function eliminarCursoCarrito(e){
+    e.preventDefault(); 
+    //console.log(e.target.classList);
+    //console.log("desde borrar carrito ");
+    if(e.target.classList.contains("borrar-curso")){
+       const cursoID= e.target.getAttribute("data-id");
+       //Elimina del arreglo por el data-id
+       articulosCarrito = articulosCarrito.filter(curso =>curso.id !== cursoID); 
+       console.log(articulosCarrito);
+
+       //Iterar sobre el carrito y mostrar su html 
+       dropdownCarritoHTML(); 
+    } 
+}
