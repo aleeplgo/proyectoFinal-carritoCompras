@@ -245,7 +245,7 @@ PAGAR PRODUCTOS
 */
 
 //Pagar productos
-function pagarProductos(e){
+/* function pagarProductos(e){
     e.preventDefault(); 
     if(articulosCarrito.length > 0){
         const cursos = articulosCarrito[0]; 
@@ -265,5 +265,36 @@ function pagarProductos(e){
     }
 
    
-}
+} */
 
+// Pagar productos
+function pagarProductos(e) {
+    e.preventDefault(); 
+
+    if (articulosCarrito.length > 0) {
+        // Calcular el total del precio de todos los cursos en el carrito
+        const totalPrecio = articulosCarrito.reduce((total, curso) => {
+            return total + (curso.precioActual * curso.cantidad);
+        }, 0);
+
+        Swal.fire({
+            title: `¡Tu pago de $${totalPrecio.toFixed(2)} ha sido procesado!`, // Usar toFixed(2) para mostrar dos decimales
+            text: `¡Gracias por tu compra!`,
+            icon: 'success',
+        });
+       const vaciarCarritoDespuesDePagar = ()=>{
+        numeritoContador.textContent=0; 
+        limpiarHTMLDropdown(); 
+    
+        //Vaciar el arreglo de Artículos Carrito
+        articulosCarrito = [];
+       }
+       vaciarCarritoDespuesDePagar(); 
+    } else {
+        Swal.fire({
+            title: `No pudimos procesar tu pago`,
+            text: `¡Ooops, selecciona al menos un curso!`,
+            icon: 'error',
+        });
+    }
+}
