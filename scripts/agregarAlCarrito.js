@@ -11,30 +11,27 @@ const borrarCursoCarrito = document.querySelector(".borrar-curso");
 const pagarAhora = document.querySelector("#pagarAhora"); 
 let listaProductos = [];
 
-eventsToCart(); 
 
-/*EVENTOS*/
+//Se saco de la función eventsToCart porque estaba bloqueando la funcionalidad del carrito... en base a las correcciones de mi tutor Juan :D
+/*FUNCIÓN AGREGAR AL CARRITO EN BASE AL EVENTO DEL BOTÓN*/
+//Evento click para ejecutar la función de vaciar el carrito 
+btnVaciarCarrito.addEventListener("click",resetearCarrito); 
 
+//Eliminar curso del carrito 
+carrito.addEventListener("click", eliminarCursoCarrito); 
 
-/*EVENTOS*/
-function eventsToCart(){
-    //console.log(btnAgregarCarrito);
+//Botón pagar ahora
+pagarAhora.addEventListener("click", pagarProductos); 
+
+/* function eventsToCart(){
+/*     //console.log(btnAgregarCarrito);
     //Cuando son varios botones se agrega: 
     //Esto se hace porque cuando seleccionas diferentes elementos con la misma clase se hace un arreglo NodeList y hay que recorrerlo
   for(const btn of btnAgregarCarrito){
         btn.addEventListener("click", agregarAlCarrito); 
     }
-
-
-    //Evento click para ejecutar la función de vaciar el carrito 
-    btnVaciarCarrito.addEventListener("click",resetearCarrito); 
-
-    //Eliminar curso del carrito 
-    carrito.addEventListener("click", eliminarCursoCarrito); 
-
-    //Botón pagar ahora
-    pagarAhora.addEventListener("click", pagarProductos); 
 }
+*/
 
 /*
 FUNCTION AGREGAR AL CARRITO EN BASE AL EVENTO DEL BOTÓN
@@ -45,6 +42,7 @@ FUNCTION AGREGAR AL CARRITO EN BASE AL EVENTO DEL BOTÓN
 function agregarAlCarrito(e) {
     e.preventDefault();
     const cursoSeleccionado = e.target.parentElement;
+    //const cursoSeleccionado = document.querySelector(".card"); 
     console.log(cursoSeleccionado);
     leerDatosCardCurso(cursoSeleccionado);
     mostrarNotificacion("Producto Agregado");
@@ -104,9 +102,7 @@ function leerDatosCardCurso(curso) {
 }
 
 
-/*
-MUESTRA EL CARRITO DE COMPRAS
-*/
+/*MUESTRA EL CARRITO DE COMPRAS*/
 
 
 //Muestra el carrito de compras 
@@ -237,7 +233,6 @@ function llenarHTMLConProductos() {
 
         const reseñas = document.createElement("p");
         reseñas.className = "reseñas";
-        // Añadir estrellas aquí si es necesario
 
         const precioAnterior = document.createElement("p");
         precioAnterior.className = "precio-anterior";
@@ -251,6 +246,8 @@ function llenarHTMLConProductos() {
         botonAgregarCarrito.className = "agregar-carrito btn-purple";
         botonAgregarCarrito.setAttribute("data-id", course.id);
         botonAgregarCarrito.textContent = "Agregar al carrito";
+        //Se agregó está evento en base a las correcciones de mi tutor Juan :D
+        botonAgregarCarrito.addEventListener("click", agregarAlCarrito);
 
         card.appendChild(tituloCurso);
         card.appendChild(profesorCurso);
